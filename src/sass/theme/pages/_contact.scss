@@ -1,0 +1,137 @@
+#contact-page {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+        font-family: $rale-bold;
+        font-weight: 700;
+        color: $green;
+        font-size: 20px;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        position: relative;
+        &:before {
+            position: absolute;
+            width: 16.3%;
+            height: 1px;
+            content: "";
+            bottom: -10px;
+            left: 16.5%;
+            width: 83.5%;
+            background: #ddd;
+        }
+        &:after {
+            position: absolute;
+            left: 0;
+            width: 16.3%;
+            height: 1px;
+            content: "";
+            bottom: -10px;
+            background-color: $green;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+        }
+    }
+    form {
+        max-width: 525px;
+        margin-left: auto;
+        margin-right: auto;
+        .form-group {
+            margin-bottom: 12px;
+        }
+        input[type=text], input[type=number], input[type=email], input[type=tel], textarea, .bootstrap-select .btn {
+            @include input-style;
+        }
+        .control--checkbox {
+            display: inline-block;
+            margin-right: 0;
+        }
+        .control--checkbox {
+            margin-top: 20px;
+            letter-spacing: 0;
+            font-size: 14px;
+            font-family: $lato-reg!important;
+            color: #666;
+        }
+        textarea {
+            height: auto;
+        }
+    }
+    label {
+        @include input-label;
+        font-family: $lato-reg;
+    }
+    input[type=submit] {
+        margin-top: 25px;
+        @include green-btn;
+        @include bp(sm-down) {
+            width: 100%;
+        }
+    }
+}
+#contact-ctas {
+    background-color: #2d2d2d;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    @include bp(desktop) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @include bp(lg) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    @include bp(md) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include bp(sm-down) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .contact-item {
+        background-color: #fff;
+        padding: 70px 50px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        @include bp(desktop) {
+            padding: 60px 50px;
+        }
+        @include bp(lg) {
+            padding: 50px 30px;
+        }
+        @include bp(md-up) {
+            height: 100%;
+        }
+        @include bp(md-down) {
+            margin-bottom: 30px;
+        }
+        h3 {
+            font-family: $rale-bold;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        p {
+            @include regular-text;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            a {
+                color: inherit;
+                &:hover {
+                    color: $green;
+                }
+            }
+            strong {
+                font-family: $lato-bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,379 @@
+// Import fonts and fonts variables
+@font-face {
+    font-family: 'Raleway Bold';
+    src: url('../fonts/Raleway-Bold.woff2') format('woff2'),
+        url('../fonts/Raleway-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway Black';
+    src: url('../fonts/Raleway-Black.woff2') format('woff2'),
+        url('../fonts/Raleway-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway Light';
+    src: url('../fonts/Raleway-Light.woff2') format('woff2'),
+        url('../fonts/Raleway-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato Regular';
+    src: url('../fonts/Lato-Regular.woff2') format('woff2'),
+        url('../fonts/Lato-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato Black';
+    src: url('../fonts/Lato-Black.woff2') format('woff2'),
+        url('../fonts/Lato-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato Bold';
+    src: url('../fonts/Lato-Bold.woff2') format('woff2'),
+        url('../fonts/Lato-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway SemiBold';
+    src: url('../fonts/Raleway-SemiBold.woff2') format('woff2'),
+        url('../fonts/Raleway-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway Regular';
+    src: url('../fonts/Raleway-Regular.woff2') format('woff2'),
+        url('../fonts/Raleway-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway Medium';
+  src: url('../fonts/Raleway-Medium.woff2') format('woff2'),
+      url('../fonts/Raleway-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Lato Italic';
+    src: url('../fonts/Lato-Italic.woff2') format('woff2'),
+        url('../fonts/Lato-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+$rale-reg: 'Raleway Regular';
+$rale-bold: 'Raleway Bold';
+$rale-black: 'Raleway Black';
+$rale-light: 'Raleway Light';
+$rale-semi: 'Raleway SemiBold';
+$rale-med: 'Raleway Medium';
+$lato-bold: 'Lato Bold';
+$lato-reg: 'Lato Regular';
+$lato-black: 'Lato Black';
+$lato-italic: 'Lato Italic';
+
+$font-main: 'Lato Regular';
+$font-heading: 'Raleway Bold';
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?5vyka1');
+  src:  url('../fonts/icomoon.eot?5vyka1#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?5vyka1') format('truetype'),
+    url('../fonts/icomoon.woff?5vyka1') format('woff'),
+    url('../fonts/icomoon.svg?5vyka1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cut:before {
+  content: "\e91e";
+}
+.icon-car:before {
+  content: "\e915";
+}
+.icon-angle-down:before {
+  content: "\e90d";
+}
+.icon-angle-left:before {
+  content: "\e90e";
+}
+.icon-angle-right:before {
+  content: "\e90f";
+}
+.icon-angle-up:before {
+  content: "\e910";
+}
+.icon-image:before {
+  content: "\e911";
+}
+.icon-long-arrow-alt-left:before {
+  content: "\e912";
+}
+.icon-long-arrow-alt-right:before {
+  content: "\e913";
+}
+.icon-star:before {
+  content: "\e914";
+}
+.icon-facebook:before {
+  content: "\e920";
+}
+.icon-share:before {
+  content: "\e91f";
+}
+.icon-heart:before {
+  content: "\e91d";
+}
+.icon-google-plus:before {
+  content: "\e91c";
+}
+.icon-twitter:before {
+  content: "\e919";
+}
+.icon-folder-open:before {
+  content: "\e91a";
+}
+.icon-user:before {
+  content: "\e91b";
+}
+.icon-book:before {
+  content: "\e918";
+}
+.icon-lock:before {
+  content: "\e917";
+}
+.icon-map:before {
+  content: "\e916";
+}
+.icon-guide:before {
+  content: "\e916";
+}
+.icon-google:before {
+  content: "\e900";
+}
+.icon-home:before {
+  content: "\e90c";
+}
+.icon-dropbox:before {
+  content: "\e901";
+}
+.icon-truck:before {
+  content: "\e902";
+}
+.icon-users:before {
+  content: "\e903";
+}
+.icon-clock:before {
+  content: "\e904";
+}
+.icon-man:before {
+  content: "\e905";
+}
+.icon-yelp:before {
+  content: "\e906";
+}
+.icon-bubbles:before {
+  content: "\e907";
+}
+.icon-envelop:before {
+  content: "\e908";
+}
+.icon-location:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e90a";
+}
+.icon-phone:before {
+  content: "\e90b";
+}
+
+
+
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body { 
+	font: {
+		size:$base-size;
+		family: $font-main;
+	}
+	-webkit-text-size-adjust: 100%;  //fix for iOS
+	overflow-x:hidden;
+    color: #666;    
+}
+
+p {
+    font-family: $font-main;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+small {
+    font-size: 0.875em;
+}
+
+address {
+    padding:0px;
+    margin:0px;
+}
+
+a {
+    @include animate-fade;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
+    font-weight: 500;
+}
+
+li {
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+iframe {
+    border: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
+// reset
+a {
+    @include animate-fade;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a, button, input, textarea {
+    &:focus {
+        outline: none!important;
+    }
+}
+
+button, input, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    //background-clip: padding-box;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    border-radius: 0;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding:0;
+    margin: 0;
+}
+
+address {
+    margin:0px;
+    padding:0px;
+}
+
+i {
+    font-style: normal;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    //@include animate-fade;
+}

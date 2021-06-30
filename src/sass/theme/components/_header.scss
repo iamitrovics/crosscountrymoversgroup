@@ -1,0 +1,115 @@
+#menu_area {
+    background-color: #fff;
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9997;
+    @include animate-fade;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    border-bottom: 1px #f7f7f7 solid;
+    #menu-wrapper {
+        @include animate-fade;
+        position: relative;
+        >.container {
+            height: 100%;
+            .row {
+                height: 100%;
+            }
+        }
+    }
+    &.sticky {
+        top: -31px;
+        @include bp(sm-down) {
+            top: -26px;
+        }
+        .navbar-brand {
+            img {
+                width: 150px;
+            }
+        }
+    }
+}
+
+
+#inner-header {
+    min-height: 150px;
+    h1 {
+        @include heading-font;
+        padding: 15px 35px;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-top: 45px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        display: table;
+    }
+    .custom-breadcrumb {
+        border-top-left-radius: 2em;
+        border-top-right-radius: 2em;
+        padding: 7px 20px 4px;
+        background-color: #fff;
+        float: right;
+        ul {
+            li {
+                font-family: $lato-reg;
+                font-size: 13px;
+                line-height: 1.5;
+                color: #666;
+                display: inline-block;
+                vertical-align: middle;
+                a {
+                    color: inherit;
+                    &:hover {
+                        color: $green;
+                    }
+                }
+            }
+            li+li {
+                &:before {
+                    content: '>';
+                    color: #666;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+    &.no-caption-header {
+        h1, .custom-breadcrumb {
+            display: none;
+        }
+    }
+}
+
+#cor-notice {
+    z-index: 9997;
+    text-align: center;
+    background: #FF0000;
+    padding: 4px;
+    transition: .25s ease-in-out;
+    height: 31px;
+    @include bp(sm-down) {
+        height: 26px;
+    }
+    p {
+        font-family: $lato-bold;
+        color: #fff;
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.58;
+        @include bp(sm-down) {
+            font-size: 12px;
+        } 
+        a {
+            color: #fff;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

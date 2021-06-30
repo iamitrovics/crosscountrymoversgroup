@@ -1,0 +1,373 @@
+/*===============================
+=           Footer            =
+===============================*/
+#page-footer {
+    #footer-top {
+        padding: 100px 0;
+        background: #222;
+        @include bp(desktop) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @include bp(lg) {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        @include bp(md) {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        @include bp(sm-down) {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .col-md-4 {
+            &:nth-of-type(1) {
+                @include bp(lg) {
+                    max-width: 27%;
+                    flex: 0 0 27%;
+                }
+            }
+            &:nth-of-type(2) {
+                @include bp(lg) {
+                    max-width: 39.666667%;
+                    flex: 0 0 39%;
+                }
+            }
+            @include bp(md) {
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+        .footer-title {
+            display: block;
+            font-family: $rale-bold;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            color: #ccc;
+            margin-bottom: 40px;
+            position: relative;
+            text-transform: uppercase;
+            &:before {
+                content: "";
+                width: 25%;
+                height: 2px;
+                display: block;
+                position: absolute;
+                left: 10%;
+                bottom: 0px;
+                background: #404040;
+            }
+            &:after {
+                content: "";
+                width: 9%;
+                height: 2px;
+                display: block;
+                margin: 15px 0;
+                background-color: $green;
+            }
+        }
+        .footer-sitemap {
+            @include bp(md-down) {
+                margin-bottom: 50px;
+            }
+            ul {
+                li {
+                    padding: 10px 0;
+                    border-top: 1px #2f2f2f solid;
+                    margin-right: 10px;
+                    &:first-of-type {
+                        border-top: 0;
+                        padding-top: 0;
+                    }
+                    a {
+                        color: #bbb;
+                        font-size: 16px;
+                        line-height: 1.5;
+                        font-family: $lato-reg;
+                        position: relative;
+                        &:before {
+                            display: inline-block;
+                            font-family: 'icomoon';
+                            content: '\e90f';
+                            font-size: 12px;
+                            padding-right: 10px;
+                        }
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-contact {
+            background-position: center center;
+            background-repeat: no-repeat;
+            @include bp(md-down) {
+                margin-bottom: 50px;
+            }
+            .fc-item {
+                position: relative;
+                padding-left: 45px;
+                margin-bottom: 20px;
+                .cont-ico {
+                    @include centre(y);
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #949494;
+                    width: 30px;
+                    height: 30px;
+                    background: #333;
+                    font-size: 12px;
+                    text-align: center;
+                }
+                p {
+                    color: #bbb;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    font-family: $lato-reg;
+                    letter-spacing: 0.6px;
+                    @include bp(sm-down) {
+                        font-size: 15px;
+                    }
+                    strong {
+                        display: block;
+                        font-family: $lato-black;
+                    }
+                    a {
+                        display: inline-block;
+                        color: inherit;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-blogs {
+            .blog-item {
+                display: flex;
+                margin-bottom: 10px;
+                padding: 10px 0 0;
+                border-top: 1px rgba(255,255,255,0.05) solid;
+                &:first-of-type {
+                    border-top: 0;
+                }
+                .blog-photo {
+                    min-width: 55px;
+                    max-width: 100%;
+                    margin-right: 10px;
+                    a {
+                        display: block;
+                        overflow: hidden;
+                        position: relative;
+                        width: 40px;
+                        img {
+                            display: block;
+                            @include animate-fade;
+                        }
+                        &:hover {
+                            img {
+                                transform: scale(1.3);
+                                -webkit-transform: scale(1.3);
+                                -moz-transform: scale(1.3);
+                                -ms-transform: scale(1.3);
+                            }
+                        }
+                    }
+                }
+                .blog-content {
+                    flex-grow: 1;
+                    overflow: hidden;
+                    .blog-title {
+                        display: block;
+                        font-family: $rale-reg;
+                        font-size: 12px;
+                        line-height: 1.5;
+                        margin: 0 0 30px;
+                        overflow: hidden;
+                        margin-bottom: 5px;
+                        height: 18px;
+                        -ms-text-overflow: ellipsis;
+                        -o-text-overflow: ellipsis;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        color: #bbb;
+                        a {
+                            color: inherit;
+                            &:hover {
+                                color: $green;
+                            }
+                        }
+                    }
+                    .comments {
+                        font-family: $lato-reg;
+                        position: relative;
+                        padding-left: 15px;
+                        font-size: 11px;
+                        line-height: 1.5;
+                        color: #999;
+                        [class^="icon-"], [class*=" icon-"] {
+                            @include centre(y);
+                            left: 0;
+                            font-size: 10px;
+                            color: #999;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyright {
+        background-color: #111;
+        padding: 25px 0;
+        @include bp(sm-down) {
+            text-align: center;
+        }
+        .row {
+            align-items: center;
+        }
+        small {
+            @include regular-text;
+            margin-bottom: 0;
+            color: #6b6b6b;
+            strong {
+                font-family: $lato-bold;
+                color: $green;
+            }
+        }
+        .footer-socials {
+            text-align: right;
+            @include bp(sm-down) {
+                text-align: center;
+                margin-top: 20px;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 5px;
+                    a {
+                        color: #6b6b6b;
+                        font-size: 16px; 
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+a#go-to-top {
+    background-color: $green;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    position: fixed;
+    right: 0px;
+    z-index: 9996;
+    display: block;
+    bottom: 0px;
+    text-align: center;
+    transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    cursor: pointer;
+    visibility: hidden;
+    i {
+        font-size: 20px;
+        font-family: 'icomoon';
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+        &:after {
+            content: "\e910";
+        }
+    }
+    &.on {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+.search-div {
+    @include centre (both);
+    position: fixed;
+    width: 50%;
+    border-bottom: 4px solid $green;
+    padding: 20px 0;
+    line-height: 1;
+    z-index: 9998;
+
+    display: none;
+    @include bp(desktop) {
+        width: 60%;
+    }
+    @include bp(lg) {
+        width: 70%;
+    }
+    input[type=text] {
+        font-family: $rale-light;
+        width: 95%;
+        font-size: 35px;
+        background: transparent;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 200;
+        color: #999;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        @include bp(desktop) {
+            font-size: 2em;
+        }
+        @include bp(lg) {
+            font-size: 1.9em;
+        }
+        @include bp(md) {
+            font-size: 1.8em;
+        }
+        @include bp(sm-down) {
+            font-size: 1.7em;
+        }
+    }
+    button[type=submit] {
+        display: none;
+    }
+    .close-search {
+        position: absolute;
+        right: 0;
+        top: 20px;
+        display: block;
+        font-size: 40px;
+        color: #444;
+        font-weight: bold;
+        line-height: 20px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+.search-overlay {
+    background: rgba(0, 0,0,0.9);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9997;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+/*=======End of Footer ========*/
+
+
