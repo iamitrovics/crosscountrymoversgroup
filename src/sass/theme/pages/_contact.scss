@@ -135,3 +135,16 @@
         }
     }
 }
+
+// validate
+.wpcf7-not-valid-tip {
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.wpcf7 form .wpcf7-response-output {
+    padding:0px;
+    margin:0px;
+    border:none;
+    color:red;
+}

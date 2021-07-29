@@ -47,7 +47,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		register_nav_menus(
 			array(
 				'primary' => __( 'Primary Menu', 'understrap' ),
-
+				'footer' => __( 'Footer Menu', 'understrap' ),
 			)
 		);
 

@@ -151,7 +151,7 @@ function cf7_post_to_third_party($form)
 		'move_type' => array('dynamichidden-100')
     );
     $handler = new MovingSoftFormHandler($formMappings);
-    $handler->setOrigin('https://sunsetmoving.com')->handleCF7($form, [66586, 66589]);
+    $handler->setOrigin('https://crosscountrymovingcompany.net')->handleCF7($form, [1487, 1486]);
 }
 add_action('wpcf7_mail_sent', 'cf7_post_to_third_party', 10, 1);
 

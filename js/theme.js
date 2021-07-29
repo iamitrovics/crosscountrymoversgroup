@@ -5937,15 +5937,16 @@
     $('#city-reviews-slider').slick({
       infinite: false,
       speed: 300,
-      slidesToShow: 2,
+      slidesToShow: 1,
       slidesToScroll: 1,
       dots: true,
       arrows: false,
       autoplay: false,
+      adaptiveHeight: true,
       responsive: [{
         breakpoint: 991,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: false,
           autoplaySpeed: 8000,
@@ -5963,6 +5964,53 @@
           arrows: false
         }
       }]
+    });
+    $('.testimonials-list').slick({
+      infinite: false,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: false,
+      autoplay: true
+    }); // Menu
+
+    $('#top__mobile a').click(function () {
+      $('.main-menu-sidebar').addClass("menu-active");
+      $('.menu-overlay').addClass("active-overlay");
+      $(this).toggleClass('open');
+    }); // Menu
+
+    $('.close-menu-btn').click(function () {
+      $('.main-menu-sidebar').removeClass("menu-active");
+      $('.menu-overlay').removeClass("active-overlay");
+    });
+    $(function () {
+      var menu_ul = $('.nav-links > li.has-menu  ul'),
+          menu_a = $('.nav-links > li.has-menu  small');
+      menu_ul.hide();
+      menu_a.click(function (e) {
+        e.preventDefault();
+
+        if (!$(this).hasClass('active')) {
+          menu_a.removeClass('active');
+          menu_ul.filter(':visible').slideUp('normal');
+          $(this).addClass('active').next().stop(true, true).slideDown('normal');
+        } else {
+          $(this).removeClass('active');
+          $(this).next().stop(true, true).slideUp('normal');
+        }
+      });
+    });
+    $(".nav-links > li.has-menu  small ").attr("href", "javascript:;");
+    var $menu = $('#menu');
+    $(document).mouseup(function (e) {
+      if (!$menu.is(e.target) // if the target of the click isn't the container...
+      && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+          $menu.removeClass('menu-active');
+          $('.menu-overlay').removeClass("active-overlay");
+        }
     });
     $(document).on('click', 'ready-to-move .rtm-link', function (event) {
       event.preventDefault();

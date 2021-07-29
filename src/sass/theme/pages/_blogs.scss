@@ -96,6 +96,8 @@
                 img {
                     width: 100%;
                     @include animate-fade;
+                    object-fit: cover;
+                    height: 350px;
                 }
             }
             .blog-content {
@@ -283,6 +285,40 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
+
+    .video-holder {
+        margin-bottom: 40px;
+        iframe {
+            display: block;
+            margin:0px auto;
+            max-width: 100%;
+        }
+    }
+
+    .intro-text {
+        margin-bottom: 40px;
+    }
+
+    .featured-photo {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        margin-bottom: 30px;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .caption {
+            font-size: 12px;
+            font-family: $lato-italic;
+            line-height: 1.5;
+            margin: 9px 0;
+            color: #767676;
+            text-align: center;
+            padding-top: 10px;
+            display: block;
+        }
+    }
+
     .blog-body {
         .blog-photo {
             margin-bottom: 30px;
@@ -386,17 +422,7 @@
                     }
                 }
             }
-            .featured-photo {
-                margin-top: 7px;
-                margin-bottom: 7px;
-                .caption {
-                    font-size: 12px;
-                    font-family: $lato-italic;
-                    line-height: 1.5;
-                    margin: 9px 0;
-                    color: #767676;
-                }
-            }
+
         }
     }
     .divider-scissors {
@@ -486,6 +512,9 @@
         border-bottom: 1px #ddd solid;
         border-top: 1px #ddd solid;
         margin: 15px 0 50px;
+        a {
+            color:$green;
+        }
         .nav-direction {
             a {
                 display: block;
@@ -713,15 +742,15 @@
                     @include regular-text;
                     color: #444;
                     margin-bottom: 0;
+                    display: block;
                     @include bp(lg) {
                         font-size: 15px;
                     }
-                    &:first-of-type {
-                        border-top: 0;
-                    }
+                    // &:first-of-type {
+                    //     border-top: 0;
+                    // }
                     a {
                         color: inherit;
-                        float: left;
                         &:hover {
                             color: $green;
                         }
@@ -799,4 +828,16 @@
             }
         }
     }
+}
+
+span.pages {
+    display: none;
+}
+
+a.first {
+    width: 60px;
+}
+
+a.last {
+    width: 60px;
 }

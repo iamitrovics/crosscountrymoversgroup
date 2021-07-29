@@ -19,10 +19,8 @@
         }
     }
     &.sticky {
-        top: -31px;
-        @include bp(sm-down) {
-            top: -26px;
-        }
+        // top: -31px;
+
         .navbar-brand {
             img {
                 width: 150px;

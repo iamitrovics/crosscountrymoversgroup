@@ -29,7 +29,7 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <?php include 'inc_quote_form.php';?>
+                    <?php include(TEMPLATEPATH . '/inc/inc_quote_form.php'); ?>
                 </div>
                 <!-- /.col-lg-6 -->
                 <div class="col-lg-6">
@@ -132,9 +132,21 @@ get_header(); ?>
                         <!-- /.at-intro-in -->
                     </div>
                     <!-- /.at-intro -->
-                    <?php include 'inc_autoquote_form.php';?>
+                    
+                    <div class="quote-form">
+                        <div class="quote-form-in">
+                            <span class="quote-title">Get Auto Quote</span>
+                            <!-- /.quote-title -->
+                            <?php echo do_shortcode('[contact-form-7 id="1487" title="Moving Car"]'); ?>
+
+                        </div>
+                        <!-- /.quote-form-in -->
+                    </div>
+                    <!-- /.quote-form -->
+
                     <div class="at-body">
                         <?php the_field('content_block_auto_home'); ?>
+                        
                     </div>
                     <!-- /.at-body -->
                 </div>
@@ -164,30 +176,27 @@ get_header(); ?>
                         </div>
                         <!-- /.testimonials-heading -->
                         <div class="testimonials-list">
-                            <div class="testimonial-item">
-                                <span class="author"><strong>Michelle Greene:</strong> Via Google</span>
-                                <div class="text">
-                                    <p>This moving company is phenomenal! Their movers are accommodating, friendly, and extremely fast. The guys were extremely careful with all of my things, nothing broke en route, and all of the movers were generally very pleasant. For an extra charge they even moved my piano. I’m telling all of my friends to use these movers.</p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.testimonial-item -->
-                            <div class="testimonial-item">
-                                <span class="author"><strong>Courtney D.:</strong> Via Yelp</span>
-                                <div class="text">
-                                    <p>I’d highly recommend this moving company. Hayk and his team did a wonderful job. They were quick, efficient and reliable. They really hustled and worked hard. Moving is stressful so it was nice to have movers who were reliable. We’d use them again and refer them to friends.</p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.testimonial-item -->
-                            <div class="testimonial-item">
-                                <span class="author"><strong>Deirdre Maier:</strong> Via Google</span>
-                                <div class="text">
-                                    <p>I used his moving company to relocate my entire office to a different location. Those guys are great. They packed everything carefully, nothing got damage, they are very professional and friendly. I highly recommend them.</p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.testimonial-item -->
+
+                            <?php
+                                $post_objects = get_field('reviews_list_home');
+
+                                if( $post_objects ): ?>
+                                    <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                        <?php setup_postdata($post); ?>
+
+                                        <div class="testimonial-item">
+                                            <span class="author"><strong><?php the_title(); ?> :</strong> <?php the_field('review_source'); ?></span>
+                                            <div class="text">
+                                                <?php the_field('testimonial_text'); ?>
+                                            </div>
+                                            <!-- /.text -->
+                                        </div>
+                                        <!-- /.testimonial-item -->
+
+                                    <?php endforeach; ?>
+                                <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                            <?php endif; ?>                        
+                            
                         </div>
                         <!-- /.testimonials-list -->
                     </div>
@@ -206,8 +215,8 @@ get_header(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>What We Do</h2>
-                        <h3>Moving Services</h3>
+                        <h2><?php the_field('section_title_serv_home'); ?></h2>
+                        <h3><?php the_field('section_subtitle_serv_home'); ?></h3>
                     </div>
                     <!-- /.col-md-12 -->
                 </div>
@@ -218,63 +227,27 @@ get_header(); ?>
         <!-- /.home-heading -->
         <div class="container">
             <div class="row wwd-items">
-                <div class="col-lg-4">
-                    <div class="wwd-item">
-                        <div class="wwd-item-in">
-                            <span class="wwd-icon icon-truck"></span>
-                            <h4>Moving</h4>
-                            <p>Our professional long distance moving company offers affordable pricing and guaranteed satisfaction services. With our team of expert movers, you can rest assured be confident that the job will get done right.</p>
-                            <ul>
-                                <li>Packing and Unpacking</li>
-                                <li>Installation & Assembly</li>
-                                <li>Auto Transport</li>
-                                <li>Storage</li>
-                            </ul>
-                            <a href="#" class="readmore">Read More</a>
+
+                <?php if( have_rows('services_list_home') ): ?>
+                    <?php while( have_rows('services_list_home') ): the_row(); ?>
+
+                        <div class="col-lg-4">
+                            <div class="wwd-item">
+                                <div class="wwd-item-in">
+                                    <?php the_sub_field('icon_code'); ?>
+                                    <h4><?php the_sub_field('service_title'); ?></h4>
+                                    <?php the_sub_field('content'); ?>
+                                    <a href="<?php the_sub_field('button_link'); ?>" class="readmore"><?php the_sub_field('button_label'); ?></a>
+                                </div>
+                                <!-- /.wwd-item-in -->
+                            </div>
+                            <!-- /.wwd-item -->
                         </div>
-                        <!-- /.wwd-item-in -->
-                    </div>
-                    <!-- /.wwd-item -->
-                </div>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <div class="wwd-item">
-                        <div class="wwd-item-in">
-                            <span class="wwd-icon icon-dropbox"></span>
-                            <h4>Packing</h4>
-                            <p>You can choose to oversee as we do the packing for you. We’ll carefully pack it all into moving boxes, regardless of the size. Our professional movers are more than qualified to properly handle your china and glassware. They are also capable of moving bulky and oversized items.</p>
-                            <ul>
-                                <li>Packing</li>
-                                <li>Materials</li>
-                                <li>Estimate</li>
-                                <li>Affordable</li>
-                            </ul>
-                            <a href="#" class="readmore">Read More</a>
-                        </div>
-                        <!-- /.wwd-item-in -->
-                    </div>
-                    <!-- /.wwd-item -->
-                </div>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <div class="wwd-item">
-                        <div class="wwd-item-in">
-                            <span class="wwd-icon icon-home"></span>
-                            <h4>Storage</h4>
-                            <p>Sometimes when planning a move, whether it be residential or commercial, the move itself may require the need for additional storage space. In some cases, you may need storage while the previous or future property is in the process of being sold. Our team of specialists delivers storage services that offer you flexible solutions to fit your needs.</p>
-                            <ul>
-                                <li>Convenient</li>
-                                <li>Stress Free</li>
-                                <li>Secure</li>
-                                <li>Experts</li>
-                            </ul>
-                            <a href="#" class="readmore">Read More</a>
-                        </div>
-                        <!-- /.wwd-item-in -->
-                    </div>
-                    <!-- /.wwd-item -->
-                </div>
-                <!-- /.col-lg-4 -->
+                        <!-- /.col-lg-4 -->
+
+                    <?php endwhile; ?>
+                <?php endif; ?>
+
             </div>
             <!-- /.row -->
         </div>

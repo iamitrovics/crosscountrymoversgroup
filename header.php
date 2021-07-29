@@ -32,14 +32,48 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php the_field('body_code_snippet', 'options'); ?>
 	<?php endif; ?>
 
+	<div class="menu-overlay"></div>
+
+	<div class="main-menu-sidebar visible-xs visible-sm visible-md" id="menu">
+
+		<header>
+			<a href="javascript:;" class="close-menu-btn"><i class="fal fa-times"></i></a>
+		</header>
+		<!-- // header  -->
+
+		<nav id="sidebar-menu-wrapper">
+			<div id="menu">    
+				<ul class="nav-links">
+					<?php
+					wp_nav_menu( array(
+						'menu'              => 'primary',
+						'theme_location'    => 'primary',
+						'depth'             => 2,
+						'container'         => false,
+						'container_class'   => 'collapse navbar-collapse',
+						'container_id'      => false,
+						'menu_class'        => 'nav navbar-nav',
+						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+						'items_wrap' => '%3$s',
+						'walker'            => new wp_bootstrap_navwalkermobile())
+					);
+					?>  
+				</ul>
+			</div>
+			<!-- // menu  -->
+
+		</nav> 
+		<!-- // sidebar menu wrapper  -->
+
+	</div>
+	<!-- // main menu sidebar  -->	
+
 	<div id="menu_area" class="menu-area">
 
-		<?php if ( get_field( 'notice_text_top', 'options' ) ): ?>
-
+		<?php if ( get_field( 'display_settings_top_notice', 'options' ) ): ?>
 		<div id="cor-notice">
 			<?php the_field('notice_text_top', 'options'); ?>
-		</div>
-					
+		</div>					
 		<?php else: ?>
 		<?php endif; ?>
 
@@ -48,109 +82,78 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<div class="row">
 						<div class="col-md-12">
 							<nav class="mainmenu">
-								<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php the_field('website_logo_branding', 'options'); ?>" alt=""></a>
+								<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php the_field('website_logo_branding', 'options'); ?>" alt="<?php bloginfo('name'); ?>"></a>
 								<!-- /.navbar-brand -->
 								<div class="collapse navbar-collapse">
 									<ul class="navbar-nav ml-auto">
-										<li><a href="#" class="active">Home</a></li>
-										<li><a href="#">About</a></li>
-										<li class="dropdown">
-											<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-											<ul class="dropdown-menu fade">
-												<li><a href="#">Auto Moving</a></li>
-												<li><a href="#">Moving Services</a></li>
-												<li><a href="#">Packing</a></li>
-												<li><a href="#">Storage</a></li>
-											</ul>
-										</li>
-										<li class="nav-item dropdown mega-dropdown">
-											<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											Cities </a>
-											<ul class="dropdown-menu mega-dropdown-menu fade">
-												<div class="row">
-													<div class="col">
-														<div class="dropdown__col">
-															<span class="dropdown__title"><a href="#">Atlanta</a></span>
-															<ul>
-																<li><a href="#">Austin</a></li>
-																<li><a href="#">Boston</a></li>
-																<li><a href="#">Bronx</a></li>
-																<li><a href="#">Chicago</a></li>
-																<li><a href="#">Dallas</a></li>
-																<li><a href="#">Denver</a></li>
-																<li><a href="#">Anaheim</a></li>
-																<li><a href="#">Los Angeles</a></li>
-																<li><a href="#">Miami</a></li>
-																<li><a href="#">New York</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="col">
-														<div class="dropdown__col">
-															<span class="dropdown__title"><a href="#">Philadelphia</a></span>
-															<ul>
-																<li><a href="#">Phoenix</a></li>
-																<li><a href="#">Portland</a></li>
-																<li><a href="#">Houston</a></li>
-																<li><a href="#">Jersey City</a></li>
-																<li><a href="#">San Diego</a></li>
-																<li><a href="#">San Francisco</a></li>
-																<li><a href="#">San Jose</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="col">
-														<div class="dropdown__col">
-															<span class="dropdown__title"><a href="#">Seattle</a></span>
-															<ul>
-																<li><a href="#">Temecula</a></li>
-																<li><a href="#">Visalia</a></li>
-																<li><a href="#">Washington</a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</ul>
-										</li>
-										<li class="dropdown">
-											<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cities</a>
-											<ul class="dropdown-menu fade">
-												<li><a href="#">Moving to and from Anaheim</a></li>
-												<li><a href="#">Moving to or from Austin</a></li>
-												<li><a href="#">Moving to or from Boston</a></li>
-												<li><a href="#">Moving to or from the Bronx</a></li>
-												<li><a href="#">Moving to or from Chicago</a></li>
-												<li><a href="#">Moving to or from Dallas</a></li>
-												<li><a href="#">Moving to or from Denver</a></li>
-												<li><a href="#">Moving to or from Houston</a></li>
-												<li><a href="#">Moving to and from Jersey City</a></li>
-												<li><a href="#">Moving to and from Los Angeles</a></li>
-												<li><a href="#">Moving to or from Miami</a></li>
-												<li><a href="#">Moving to or from New York</a></li>
-												<li><a href="#">Moving to or from Philadelphia</a></li>
-												<li><a href="#">Moving to or from Phoenix</a></li>
-												<li><a href="#">Moving to or from Portland</a></li>
-												<li><a href="#">Moving to or from San Diego</a></li>
-												<li><a href="#">Moving to or from San Francisco</a></li>
-												<li><a href="#">Moving to or from San Jose</a></li>
-												<li><a href="#">Moving to or from Seattle</a></li>
-												<li><a href="#">Moving to or from Temecula</a></li>
-												<li><a href="#">Moving to or from Visalia</a></li>
-												<li><a href="#">Moving to or from Washington D.C.</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Blog</a></li>
-										<li><a href="#">Contact</a></li>
+
+										<?php if( have_rows('menu_items_header_main', 'options') ): ?>
+											<?php while( have_rows('menu_items_header_main', 'options') ): the_row(); ?>
+
+												<?php if (get_sub_field('link_type') == 'Single Item') { ?>
+													<li><a href="<?php the_sub_field('link_to_page'); ?>"><?php the_sub_field('item_label'); ?></a></li>
+												<?php } elseif (get_sub_field('link_type') == 'Dropdown') { ?>
+													<li class="dropdown">
+														<a class="dropdown-toggle" href="<?php the_sub_field('link_to_page'); ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php the_sub_field('item_label'); ?></a>
+														<ul class="dropdown-menu fade">
+															<?php if( have_rows('dropdown_items') ): ?>
+																<?php while( have_rows('dropdown_items') ): the_row(); ?>
+
+																	<li><a href="<?php the_sub_field('link_to_page'); ?>"><?php the_sub_field('label'); ?></a></li>
+
+																<?php endwhile; ?>
+															<?php endif; ?>
+														</ul>
+													</li>
+												<?php } elseif (get_sub_field('link_type') == 'Dropdown Multilevel') { ?>
+													<li class="nav-item dropdown mega-dropdown">
+														<a class="dropdown-toggle" href="<?php the_sub_field('link_to_page'); ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<?php the_sub_field('item_label'); ?></a>
+														<ul class="dropdown-menu mega-dropdown-menu fade">
+															<div class="row">
+																<?php if( have_rows('dropdown_columns') ): ?>
+																	<?php while( have_rows('dropdown_columns') ): the_row(); ?>
+
+																		<div class="col">
+																			<div class="dropdown__col">
+																				<span class="dropdown__title"><a href="<?php the_sub_field('column_link'); ?>"><?php the_sub_field('column_title'); ?></a></span>
+																				<ul>
+																					<?php if( have_rows('dropdown_items') ): ?>
+																						<?php while( have_rows('dropdown_items') ): the_row(); ?>
+
+																							<li><a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('label'); ?></a></li>
+
+																						<?php endwhile; ?>
+																					<?php endif; ?>
+ 																					
+																				</ul>
+																			</div>
+																		</div>
+
+																	<?php endwhile; ?>
+																<?php endif; ?>
+
+															</div>
+														</ul>
+													</li>
+												<?php } ?>   
+
+											<?php endwhile; ?>
+										<?php endif; ?>
+						
 									</ul>
 									<!-- /.navbar-nav -->
+
 									<div id="top-phone">
 										<a href="tel:<?php the_field('phone_number_general_cta', 'options'); ?>"><span class="icon-phone"></span> <?php the_field('phone_number_general_cta', 'options'); ?></a>
 									</div>
 									<!-- /#top-phone -->
+
 									<div id="top-search">
 										<a href="#"><span class="icon-search"></span></a>
 									</div>
 									<!-- /#top-search -->
+
 									<div id="top__mobile">
 										<a href="javascript:;" class="menu-btn">
 											<span></span>
@@ -159,6 +162,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 										</a>
 									</div>
 									<!-- /#top__mobile -->
+
 								</div>
 								<!-- /.navbar-collapse -->
 							</nav>

@@ -128,6 +128,10 @@
                     border-radius: 10px;
                     padding: 5px 10px;
                 }
+                img {
+                    max-height: 80px;
+                    width:auto;
+                }
             }
         }
     }
@@ -711,6 +715,14 @@
             @include regular-text;
             color: #000;
         }
+        ul {
+            @include list-style;
+            li {
+                text-align: left;
+                color:$black;
+                margin-bottom: 10px;
+            }
+        }
         a {
             margin-top: 20px;
             font-family: $lato-reg;
@@ -757,11 +769,21 @@
             @include heading-font2;
             margin-bottom: 20px;
         }
+        a {
+            color:$blue;
+            font-weight: bold;
+            &:hover {
+                color:$green;
+            }
+        }        
         p {
             @include regular-text;
             margin-bottom: 0;
             color: #666;
             line-height: 1.5;
+            a {
+                color:$blue;
+            }
             strong {
                 font-family: $rale-bold;
             }
@@ -872,4 +894,9 @@
             }
         }
     }
+}
+
+iframe {
+    width: 100%;
+    max-width: 100%;
 }

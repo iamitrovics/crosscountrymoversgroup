@@ -19,10 +19,9 @@ $container = get_theme_mod( 'understrap_container_type' );
                     <h1><?php the_title(); ?></h1>
                     <div class="custom-breadcrumb">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Moving</a></li>
-                            <li>The Ultimate Moving to a Tiny House Checklist</li>
+                            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog">Blog</a></li>
+                            <li><?php the_title(); ?></li>
                         </ul>
                     </div>
                     <!-- /.custom-breadcrumb -->
@@ -63,8 +62,15 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="blog-meta">
                                         <ul>
                                             <li><span class="icon-clock"></span><?php echo get_the_date( 'F j, Y' ); ?></li>
-                                            <li><span class="icon-user"></span><a href="#">Amelia Russell</a></li>
-                                            <li><span class="icon-folder-open"></span><a href="#">moving</a></li>
+                                            <li><span class="icon-user"></span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author_meta('display_name', $author_id); ?></a></li>
+                                            <li><span class="icon-folder-open"></span>
+                                                <?php
+                                                global $post;
+                                                $categories = get_the_category($post->ID);
+                                                $cat_link = get_category_link($categories[0]->cat_ID);
+                                                echo '<a href="'.$cat_link.'">'.$categories[0]->cat_name.'</a>' 
+                                                ?>                                        
+                                            </li>
                                         </ul>
                                     </div>
                                     <!-- /.blog-meta -->
@@ -132,16 +138,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                         <div class="blog-nav">
                             <div class="row">
                                 <div class="col-lg-6 nav-direction nav-previous">
-                                    <a href="#">
-                                        <span class="meta-nav">← Previous post</span>
-                                        <span class="nav-title">How to Move Efficiently and Pack Like a Pro</span>
-                                    </a>
+                                    <h6><?php previous_post_link( '%link', '< %title', TRUE ); ?> </h6>
                                 </div>
                                 <div class="col-lg-6 nav-direction nav-next">
-                                    <a href="#">
-                                        <span class="meta-nav">Next post →</span>
-                                        <span class="nav-title">How to Move Efficiently and Pack Like a Pro</span>
-                                    </a>
+                                    <h6><?php next_post_link( '%link', '%title >', TRUE ); ?> </h6>
                                 </div>
                             </div>
                         </div>
@@ -150,117 +150,92 @@ $container = get_theme_mod( 'understrap_container_type' );
                     <!-- /.blogs-body -->
                 </div>
                 <!-- /.col-lg-9 -->
-                <div class="col-lg-3">
-                    <div class="blog-sidebar">
-                        <div class="sidebar-box">
-                            <h3>Blog Search</h3>
-                            <div class="blog-search">
-                                <form action="#">
-                                    <input type="text"  value="" name="s" placeholder="Enter search keyword here...">
+
+            <div class="col-lg-3">
+                <div class="blog-sidebar">
+                    <div class="sidebar-box">
+                        <h3>Blog Search</h3>
+                        <div class="blog-search">
+
+                            <form role="search" method="get" id="searchform"
+                                class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                <div>
+                                    <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
+                                    <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Enter search keyword here..." />
                                     <button type="submit"><span class="icon-search"></span></button>
-                                </form>
-                            </div>
-                            <!-- /.blog-search -->
-                        </div>
-                        <!-- /.sidebar-box -->
-                        <div class="sidebar-box">
-                            <h3>Recent Posts</h3>
-                            <div class="sidebar-posts-list">
-                                <div class="sidebar-post">
-                                    <div class="post-photo">
-                                        <a href="#"><img src="img/misc/blog-photo.jpeg" alt=""></a>
-                                    </div>
-                                    <!-- /.post-photo -->
-                                    <div class="post-content">
-                                        <span class="post-title"><a href="#">How to Move Efficiently and Pack Like a Pro</a></span>
-                                        <div class="date">
-                                            <span class="icon-clock"></span> February 7, 2021
-                                        </div>
-                                        <!-- /.date -->
-                                        <div class="comments">
-                                            <span class="icon-bubbles"></span> Comments Off
-                                        </div>
-                                        <!-- /.comments -->
-                                    </div>
-                                    <!-- /.post-content -->
+
                                 </div>
-                                <!-- /.sidebar-post -->
-                                <div class="sidebar-post">
-                                    <div class="post-photo">
-                                        <a href="#"><img src="img/misc/blog-photo.jpeg" alt=""></a>
-                                    </div>
-                                    <!-- /.post-photo -->
-                                    <div class="post-content">
-                                        <span class="post-title"><a href="#">How to Move Efficiently and Pack Like a Pro</a></span>
-                                        <div class="date">
-                                            <span class="icon-clock"></span> February 7, 2021
-                                        </div>
-                                        <!-- /.date -->
-                                        <div class="comments">
-                                            <span class="icon-bubbles"></span> Comments Off
-                                        </div>
-                                        <!-- /.comments -->
-                                    </div>
-                                    <!-- /.post-content -->
-                                </div>
-                                <!-- /.sidebar-post -->
-                                <div class="sidebar-post">
-                                    <div class="post-photo">
-                                        <a href="#"><img src="img/misc/blog-photo.jpeg" alt=""></a>
-                                    </div>
-                                    <!-- /.post-photo -->
-                                    <div class="post-content">
-                                        <span class="post-title"><a href="#">How to Move Efficiently and Pack Like a Pro</a></span>
-                                        <div class="date">
-                                            <span class="icon-clock"></span> February 7, 2021
-                                        </div>
-                                        <!-- /.date -->
-                                        <div class="comments">
-                                            <span class="icon-bubbles"></span> Comments Off
-                                        </div>
-                                        <!-- /.comments -->
-                                    </div>
-                                    <!-- /.post-content -->
-                                </div>
-                                <!-- /.sidebar-post -->
-                            </div>
-                            <!-- /.sidebar-posts-list -->
+                            </form>   
+
                         </div>
-                        <!-- /.sidebar-box -->
-                        <div class="sidebar-box">
-                            <h3>Categories</h3>
-                            <div class="blog-categories">
-                                <ul>
-                                    <li><a href="#">Blog</a>(30)</li>
-                                    <li><a href="#">Cross Country Moving</a>(18)</li>
-                                    <li><a href="#">moving</a>(49)</li>
-                                    <li><a href="#">Uncategorized</a>(6)</li>
-                                </ul>
-                            </div>
-                            <!-- /.blog-categories -->
-                        </div>
-                        <!-- /.sidebar-box -->
-                        <div class="sidebar-box">
-                            <div class="blog-tags">
-                                <h3>Tag Cloud</h3>
-                                <ul>
-                                    <li><a href="#" data-hover="Auto Transport">Auto Transport</a></li>
-                                    <li><a href="#" data-hover="Car Shipping">Car Shipping</a></li>
-                                    <li><a href="#" data-hover="Cross Country">cross country</a></li>
-                                    <li><a href="#" data-hover="Long Distance">Long Distance</a></li>
-                                    <li><a href="#" data-hover="Moving">Moving</a></li>
-                                    <li><a href="#" data-hover="Moving To Different State">Moving To Different State</a></li>
-                                    <li><a href="#" data-hover="Packing">Packing</a></li>
-                                    <li><a href="#" data-hover="Shipping Boxes">Shipping Boxes</a></li>
-                                </ul>
-                            </div>
-                            <!-- /.blog-tags -->
-                        </div>
-                        <!-- /.sidebar-box -->
+                        <!-- /.blog-search -->
                     </div>
-                    <!-- /.blog-sidebar -->
+                    <!-- /.sidebar-box -->
+                    <div class="sidebar-box">
+                        <h3>Recent Posts</h3>
+                        <div class="sidebar-posts-list">
+
+								<?php
+								$loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3) ); ?>  
+								<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+                                    <div class="sidebar-post">
+                                        <div class="post-photo">
+									        <a href="<?php echo get_permalink(); ?>">
+												<?php
+												$imageID = get_field('featured_image_blog');
+												$image = wp_get_attachment_image_src( $imageID, 'large' );
+												$alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+												?> 
+
+												<img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 												
+											</a>
+                                        </div>
+                                        <!-- /.post-photo -->
+                                        <div class="post-content">
+                                            <span class="post-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span>
+                                            <div class="date">
+                                                <span class="icon-clock"></span> <?php echo get_the_date( 'F j, Y' ); ?>
+                                            </div>
+                                            <!-- /.date -->
+                                        </div>
+                                        <!-- /.post-content -->
+                                    </div>
+                                    <!-- /.sidebar-post -->
+
+								<?php endwhile; ?>
+								<?php wp_reset_postdata(); ?>    
+                                <?php wp_reset_query(); ?>
+
+                        </div>
+                        <!-- /.sidebar-posts-list -->
+                    </div>
+                    <!-- /.sidebar-box -->
+
+                    <div class="sidebar-box">
+                        <h3>Categories</h3>
+                        <div class="blog-categories">
+
+
+                        <ul>
+                            <?php wp_list_categories( array(
+                                'orderby'    => 'name',
+                                'show_count' => false,
+                                'title_li' => '',
+                            ) ); ?> 
+                        </ul>    
+            
+                        </div>
+                        <!-- /.blog-categories -->
+                    </div>
+                    <!-- /.sidebar-box -->                    
+
+
                 </div>
-                <!-- /.col-lg-3 -->
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.col-lg-3 -->
+
             </div>
             <!-- /.row -->
         </div>
