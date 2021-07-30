@@ -115,14 +115,27 @@ $container = get_theme_mod( 'understrap_container_type' );
                                             <?php the_sub_field('embedded_code'); ?>
                                         </div>
 
+                                    <?php elseif( get_row_layout() == 'quote_cta' ): ?>
+
+                                        <div class="quote-cta--single">
+                                            <span class="title"><?php the_sub_field('cta_title'); ?></span>
+                                            <a href="#bottom-form" class="btn-cta"><?php the_sub_field('button_label'); ?></a>
+                                        </div>
+                                        <!-- // single  -->   
+
                                     <?php endif; ?>
                                 <?php endwhile; ?>
                             <?php endif; ?>                            
-
-
-
                         </div>
                         <!-- /.blog-content -->
+
+                        <div id="bottom-form">
+                            
+                            <?php include(TEMPLATEPATH . '/inc/inc_quote_form.php'); ?>
+
+                        </div>
+                        <!-- /.blog-share -->
+
                         <div class="blog-share">
                             <span class="icon-share"></span> <span class="share-caption">Share this post on:</span>
                             <div class="share-btns">

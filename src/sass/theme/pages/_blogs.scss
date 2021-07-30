@@ -841,3 +841,56 @@ a.first {
 a.last {
     width: 60px;
 }
+#bottom-form {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+// CTGA
+.quote-cta--single {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:40px;
+    background:$green;
+    padding:45px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    @include bp(md) {
+        padding:30px;
+    }
+    @include bp(sm-down) {
+        padding:30px;
+        text-align: center;
+        display: block;
+        padding-bottom: 40px;
+    }
+    span.title {
+        font-size: 32px;
+        color:$white;
+        margin-bottom: 0px;
+        margin-right: 40px;
+        line-height: 1.2;
+        width: 60%;
+        @include bp(md) {
+            font-size: 30px;
+        }
+        @include bp(sm-down) {
+            font-size: 30px;
+            margin-bottom: 40px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            text-align: center;
+        }
+    }
+    a.btn-cta {
+        background:$white;
+        color:$black;
+        padding: 20px 40px;
+        border-radius: 20px;
+        &:hover {
+            color:$black;
+        }
+    }
+}
