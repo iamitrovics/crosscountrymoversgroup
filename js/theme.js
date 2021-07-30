@@ -6082,4 +6082,5 @@
       }
     });
   });
+  $('.blog-text a').attr("target", "_blank");
 })(jQuery);
