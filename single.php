@@ -62,7 +62,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="blog-meta">
                                         <ul>
                                             <li><span class="icon-clock"></span><?php echo get_the_date( 'F j, Y' ); ?></li>
-                                            <li><span class="icon-user"></span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author_meta('display_name', $author_id); ?></a></li>
                                             <li><span class="icon-folder-open"></span>
                                                 <?php
                                                 global $post;
@@ -115,14 +114,36 @@ $container = get_theme_mod( 'understrap_container_type' );
                                             <?php the_sub_field('embedded_code'); ?>
                                         </div>
 
+                                    <?php elseif( get_row_layout() == 'quote_cta' ): ?>
+
+                                        <div class="quote-cta--single">
+                                            <span class="title"><?php the_sub_field('cta_title'); ?></span>
+                                            <a href="#bottom-form" class="btn-cta"><?php the_sub_field('button_label'); ?></a>
+                                        </div>
+                                        <!-- // single  -->   
+
                                     <?php endif; ?>
                                 <?php endwhile; ?>
                             <?php endif; ?>                            
-
-
-
                         </div>
                         <!-- /.blog-content -->
+
+                        <div class="author-desc">
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
+                            <div class="author-content">
+                                <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
+                                <p><?php the_author_description(); ?></p>
+                            </div>
+                            <!-- /.author-content -->
+                        </div>
+
+                        <div id="bottom-form">
+                            
+                            <?php include(TEMPLATEPATH . '/inc/inc_quote_form.php'); ?>
+
+                        </div>
+                        <!-- /.blog-share -->
+
                         <div class="blog-share">
                             <span class="icon-share"></span> <span class="share-caption">Share this post on:</span>
                             <div class="share-btns">
