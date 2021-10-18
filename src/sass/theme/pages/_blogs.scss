@@ -580,6 +580,39 @@
             left: 10%;
             width: 80%;
         }
+        // posts
+        #post-nav {
+            .post-wrapper {
+                .nav-col {
+                    a {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        border-top: 1px #e4e4e4 solid;
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        &:hover {
+                            span {
+                                color:$green;
+                            }
+                        }
+                    }
+                    img {
+                        width: 34px;
+                        margin-right: 15px;
+                    }
+                    span {
+                        display: block;
+                        font-family: $rale-semi;
+                        font-size: 15px;
+                        line-height: 1.5;
+                        color: #444;
+                        @include animate-fade;
+                    }
+                }
+            }
+        }
         h3 {
             font-family: $rale-semi;
             line-height: 1.5;
