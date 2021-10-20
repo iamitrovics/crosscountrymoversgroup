@@ -295,6 +295,25 @@
         }
     }
 
+    .single-table {
+        margin-bottom: 30px;
+        @include bp(sm-down) {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        th {
+            border: 1px solid #000;
+            background: $green;
+            color: #fff;
+            padding: 3px 10px;
+        }
+        td {
+            border: 1px solid #000;
+            padding: 3px 10px;
+        }
+    }
+
     .intro-text {
         margin-bottom: 40px;
     }
@@ -573,6 +592,76 @@
                 }
                 a {
                     text-align: right;
+                }
+            }
+        }
+    }
+}
+// Featured Article 
+
+.featured-article {
+    .blog-item {
+        background-color: $green;
+        padding: 40px;
+        border-radius: 20px;
+        margin: 30px 0;
+        .blog-photo {
+            display: inline-block;
+            width: 30%;
+            vertical-align: middle;
+            margin: 0 !important;
+            margin-right: 30px;
+            height: 160px;
+            @include bp(sm-down) {
+                width: 100%;
+                margin-bottom: 20px !important;
+                height: auto;
+            }
+            img {
+                max-width: 100% !important; 
+                height: 100%;
+                object-fit: cover;
+                margin:0 !important;
+            }
+        }
+        .blog-content {
+            display: inline-block;
+            width: 60%;
+            vertical-align: middle;
+            margin-left: 30px;
+            @include bp(sm-down) {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .blog-heading {
+                padding-right: 0 !important;
+                h3 {
+                    margin-top: 0 !important;
+                    font-size: 1.8em !important;
+                    color: $white;
+                    margin-bottom: 20px;
+                    @include bp(sm-down) {
+                        text-align: center;
+                        margin-bottom: 35px !important;
+                        font-size: 1.2em !important;
+                    }
+                }
+                .readmore-btn {
+                    a {
+                        background:$white;
+                        color:$black;
+                        padding: 20px 40px;
+                        border-radius: 20px;
+                        display: inline-block;
+                        @include bp(sm-down) {
+                            text-align: center;
+                        }
+                        &:hover {
+                            background-color:$black;
+                            color: #fff;
+                        }
+                    }
                 }
             }
         }
@@ -947,7 +1036,8 @@ a.last {
         padding: 20px 40px;
         border-radius: 20px;
         &:hover {
-            color:$black;
+            background-color:$black;
+            color: #fff;
         }
     }
 }

@@ -120,7 +120,100 @@ $container = get_theme_mod( 'understrap_container_type' );
                                             <span class="title"><?php the_sub_field('cta_title'); ?></span>
                                             <a href="#bottom-form" class="btn-cta"><?php the_sub_field('button_label'); ?></a>
                                         </div>
-                                        <!-- // single  -->   
+                                        <!-- // single  --> 
+                                        
+                                    <?php elseif( get_row_layout() == 'featured_article' ): ?>    
+                                        <?php
+                                            $post_objects = get_sub_field('featured_article_list');
+
+                                            if( $post_objects ): ?>
+                                                <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                                    <?php setup_postdata($post); ?>
+                                                        
+                                                    <div class="featured-article">
+                                                        <section class="blog-item">
+                                                            <div class="blog-photo">
+                                                                <a href="<?php echo get_permalink(); ?>" target="_blank">
+                                                                    <?php
+                                                                    $imageID = get_field('featured_image_blog');
+                                                                    $image = wp_get_attachment_image_src( $imageID, 'blog-image' );
+                                                                    $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                                                    ?> 
+
+                                                                    <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.blog-photo -->
+                                                            <div class="blog-content">
+                                                                <div class="blog-info">
+                                                                    <div class="blog-heading">
+                                                                        <a href="<?php echo get_permalink(); ?>" target="_blank"><h3><?php the_title(); ?></h3></a>
+                                                                        <div class="readmore-btn">
+                                                                            <a href="<?php echo get_permalink(); ?>" target="_blank">Read More</a>
+                                                                        </div>
+                                                                    <!-- /.readmore-btn -->
+                                                                    </div>
+                                                                    <!-- /.blog-heading -->
+                                                                </div>
+                                                                <!-- /.blog-info -->
+                                                            </div>
+                                                            <!-- /.blog-content -->
+                                                            
+                                                        </section>
+                                                        <!-- /.blog-item --> 
+                                                    </div>
+                                                    <!-- /.featured-article -->
+                                                        
+                                                <?php endforeach; ?>
+                                            <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                                        <?php endif; ?>
+                                        <?php wp_reset_postdata(); ?>
+
+                                    <?php elseif( get_row_layout() == 'table' ): ?>
+
+                                        <table style="width:100%" class="single-table">
+                                            <thead>
+                                                <tr role="row">
+                                                <?php
+                                                    // check if the repeater field has rows of data
+                                                    if(have_rows('table_head_cells')):
+                                                        // loop through the rows of data
+                                                        while(have_rows('table_head_cells')) : the_row();
+                                                            $hlabel = get_sub_field('table_cell_label_thead');
+                                                            ?>  
+                                                            <th tabindex="0" rowspan="1" colspan="1"><?php echo $hlabel; ?></th>
+                                                        <?php endwhile;
+                                                    else :
+                                                        echo 'No data';
+                                                    endif;
+                                                    ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php while ( have_posts() ) : the_post(); ?>
+                                                <?php 
+                                                // check for rows (parent repeater)
+                                                if( have_rows('table_body_row') ): ?>   
+                                                    <?php 
+                                                    // loop through rows (parent repeater)
+                                                    while( have_rows('table_body_row') ): the_row(); ?>
+                                                            <?php 
+                                                            // check for rows (sub repeater)
+                                                            if( have_rows('table_body_cells') ): ?>
+                                                                <tr>
+                                                                    <?php 
+                                                                    // loop through rows (sub repeater)
+                                                                    while( have_rows('table_body_cells') ): the_row();
+                                                                        ?>
+                                                                        <td><?php the_sub_field('table_cell_label_tbody'); ?></td>
+                                                                    <?php endwhile; ?>
+                                                                </tr>
+                                                            <?php endif; //if( get_sub_field('') ): ?>
+                                                    <?php endwhile; // while( has_sub_field('') ): ?>
+                                                <?php endif; // if( get_field('') ): ?>
+                                                <?php endwhile; // end of the loop. ?>
+                                            </tbody>
+                                        </table>
 
                                     <?php endif; ?>
                                 <?php endwhile; ?>
@@ -227,6 +320,63 @@ $container = get_theme_mod( 'understrap_container_type' );
 								<?php endwhile; ?>
 								<?php wp_reset_postdata(); ?>    
                                 <?php wp_reset_query(); ?>
+
+                        </div>
+                        <!-- /.sidebar-posts-list -->
+                    </div>
+                    <!-- /.sidebar-box -->
+
+                    <div class="sidebar-box">
+                        <h3>Related Posts</h3>
+                        <div class="sidebar-posts-list">
+
+                            <?php
+                                $categories =   get_the_category();
+                                // print_r($categories);
+                                $rp_query   =  new WP_Query ([
+                                    'posts_per_page'        =>  3,
+                                    'post__not_in'          =>  [ $post->ID ],
+                                    'cat'                   =>  !empty($categories) ? $categories[0]->term_id : null,
+
+                                ]);
+
+                                if ( $rp_query->have_posts() ) {
+                                    while( $rp_query->have_posts() ) {
+                                        $rp_query->the_post();
+                                        ?>
+
+                                    <div class="sidebar-post">
+                                        <div class="post-photo">
+									        <a href="<?php echo get_permalink(); ?>">
+												<?php
+												$imageID = get_field('featured_image_blog');
+												$image = wp_get_attachment_image_src( $imageID, 'large' );
+												$alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+												?> 
+
+												<img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 												
+											</a>
+                                        </div>
+                                        <!-- /.post-photo -->
+                                        <div class="post-content">
+                                            <span class="post-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span>
+                                            <div class="date">
+                                                <span class="icon-clock"></span> <?php echo get_the_date( 'F j, Y' ); ?>
+                                            </div>
+                                            <!-- /.date -->
+                                        </div>
+                                        <!-- /.post-content -->
+                                    </div>
+                                    <!-- /.sidebar-post -->
+
+                                    <?php
+                                        }
+
+                                        wp_reset_postdata();
+
+                                    }
+
+                                ?>
 
                         </div>
                         <!-- /.sidebar-posts-list -->
