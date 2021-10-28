@@ -170,6 +170,41 @@ $container = get_theme_mod( 'understrap_container_type' );
                                         <?php endif; ?>
                                         <?php wp_reset_postdata(); ?>
 
+                                    <?php elseif( get_row_layout() == 'services_module' ): ?>
+
+                                        <section id="whatwedo" class="service-module">
+                                            <div class="row wwd-items">
+
+                                                <?php
+                                                    $post_objects = get_sub_field('services_list_blog_page');
+
+                                                    if( $post_objects ): ?>
+                                                        <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                                            <?php setup_postdata($post); ?>
+
+                                                            <div class="col-lg-4">
+                                                                <div class="wwd-item">
+                                                                    <div class="wwd-item-in">
+                                                                        <span class="wwd-icon"><?php the_field('icon_code_single_city'); ?></span>
+                                                                        <h4><?php the_title(); ?></h4>
+                                                                        <?php the_field('short_description_serv'); ?>
+                                                                        <a href="<?php echo get_permalink(); ?>" target="_blank" class="readmore">Read More</a>
+                                                                    </div>
+                                                                    <!-- /.wwd-item-in -->
+                                                                </div>
+                                                                <!-- /.wwd-item -->
+                                                            </div>
+                                                            <!-- /.col-lg-4 -->
+
+                                                            <?php endforeach; ?>
+                                                    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                                                <?php endif; ?>
+
+                                            </div>
+                                            <!-- /.row -->
+                                        </section>
+                                        <!-- /#whatwedo -->
+
                                     <?php elseif( get_row_layout() == 'table' ): ?>
 
                                         <table style="width:100%" class="single-table">
