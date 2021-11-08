@@ -294,7 +294,37 @@
             max-width: 100%;
         }
     }
-
+    // accordion
+	.accordion-section {
+        margin-bottom: 30px;
+        h2 {
+            margin-bottom: 20px;
+        }
+		.panel > div {
+			display: none;
+			padding: 15px;
+            padding-top: 10px;
+		}
+		h4 {
+			text-align: left;
+			border-radius:12px;
+			padding:15px;
+			font-size: 1.2em;
+			border:none;
+			padding-left: 30px;
+			margin-top: 0px;
+			margin-bottom: 5px;
+			background:$green;
+			color:#fff;
+			@include animate-fade;
+			@include bp(sm-down) {
+				padding-left: 20px;
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
     .single-table {
         margin-bottom: 30px;
         @include bp(sm-down) {

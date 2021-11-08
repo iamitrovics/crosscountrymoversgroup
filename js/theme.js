@@ -5934,6 +5934,21 @@
       $("#cookie-notice").removeClass("slide-up");
       $("#cookie-notice").addClass("slide-down");
     });
+    $(".accordion-list .panel:first-of-type > h4").addClass('active');
+    $(".accordion-list .panel:first-of-type > .panel__content").css('display', 'block');
+    $(".accordion-list .panel > h4").on("click", function (e) {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        $(this).siblings(".accordion-list .panel .panel__content").slideUp(200);
+      } else {
+        $(".accordion-list .panel > h4").removeClass("active");
+        $(this).addClass("active");
+        $(".accordion-list .panel .panel__content").slideUp(200);
+        $(this).siblings(".accordion-list .panel .panel__content").slideDown(200);
+      }
+
+      e.preventDefault();
+    });
     $('#city-reviews-slider').slick({
       infinite: false,
       speed: 300,
