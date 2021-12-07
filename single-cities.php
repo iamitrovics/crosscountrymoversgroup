@@ -111,6 +111,40 @@ $container = get_theme_mod( 'understrap_container_type' );
             </div>
             <!-- /#city-intro -->
 
+            <?php elseif( get_row_layout() == 'full_width_content' ): ?>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="city-text">
+                                <?php the_sub_field('content_block'); ?>
+                            </div>
+                            <!-- /.city-text -->
+                        </div>
+                        <!-- /.col-md-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+
+            <?php elseif( get_row_layout() == 'full_width_content_dark' ): ?>
+
+            <section class="full-width-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="city-text dark">
+                                <?php the_sub_field('content_block'); ?>
+                            </div>
+                            <!-- /.city-text -->
+                        </div>
+                        <!-- /.col-md-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </section>
+
             <?php elseif( get_row_layout() == 'services' ): ?>
 
             <div id="city-services" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/bg/bg-yellow-ccmg.jpg); ?>)">

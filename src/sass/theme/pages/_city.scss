@@ -695,7 +695,7 @@
         }
     }
     .rtm-content {
-        text-align: center;
+        text-align: left;
         padding: 40px;
         padding-top: 55px;
         @include bp(lg-up) {
@@ -724,6 +724,10 @@
             }
         }
         a {
+            text-decoration: underline;
+            color: inherit;
+        }
+        a.rtm-link {
             margin-top: 20px;
             font-family: $lato-reg;
             display: inline-flex;
@@ -738,10 +742,49 @@
             line-height: 1.8;
             border-radius: 5px;
             height: 52px;
+            text-decoration: none;
             &:hover {
                 background-color: rgba(245,245,245, .8);
             }
         }
+    }
+}
+.city-text {
+    text-align: left;
+    padding: 60px 0;
+    h2 {
+        @include heading-font2;
+        color: #000;
+        text-align: center
+    }
+    h3 {
+        margin-bottom: 20px;
+    }
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+    p {
+        @include regular-text;
+        color: #000;
+    }
+    ul {
+        @include list-style;
+        li {
+            text-align: left;
+            color:$black;
+            margin-bottom: 10px;
+        }
+    }
+}
+.full-width-dark {
+    background-color: $blue;
+    color: #fff;
+    & * {
+        color: #fff;
+    }
+    li {
+        color: #fff !important;
     }
 }
 
