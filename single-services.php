@@ -40,7 +40,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 </header>
 <!-- /#inner-header -->
 
-<section class="home-section" id="about-page">
+<section class="home-section" id="services-page">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -51,26 +51,94 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                             <?php the_sub_field('content_block'); ?>
 
-                        <?php elseif( get_row_layout() == 'quote_cta' ): ?>
+                        <?php elseif( get_row_layout() == 'full_width_image' ): ?>
 
-                        <div class="quote-form">
-                            <div class="quote-form-in">
-                                <span class="quote-title">Get a Quote</span>
-                                <!-- /.quote-title -->
+                            <div class="featured-photo">
+                                <?php
+                                $imageID = get_sub_field('featured_image');
+                                $image = wp_get_attachment_image_src( $imageID, 'half-image' );
+                                $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                ?> 
 
-                                <?php the_sub_field('form_code'); ?>
+                                <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 
+                                <div class="caption"><?php the_sub_field('image_caption'); ?></div>
+                            </div>     
 
+                        <?php elseif( get_row_layout() == 'image_left_text_right' ): ?>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="featured-photo">
+                                        <?php
+                                        $imageID = get_sub_field('featured_image');
+                                        $image = wp_get_attachment_image_src( $imageID, 'half-image' );
+                                        $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                        ?> 
+
+                                        <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 
+                                        <div class="caption"><?php the_sub_field('image_caption'); ?></div>
+                                    </div>   
+                                </div>
+                                <div class="col-md-6">
+                                    <?php the_sub_field('content_block'); ?>
+                                </div>
                             </div>
-                            <!-- /.quote-form-in -->
-                        </div>
-                        <!-- /.quote-form -->
 
+                        <?php elseif( get_row_layout() == 'image_right_text_left' ): ?>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <?php the_sub_field('content_block'); ?>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="featured-photo">
+                                        <?php
+                                        $imageID = get_sub_field('featured_image');
+                                        $image = wp_get_attachment_image_src( $imageID, 'half-image' );
+                                        $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                        ?> 
+
+                                        <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 
+                                        <div class="caption"><?php the_sub_field('image_caption'); ?></div>
+                                    </div>   
+                                </div>
+                            </div> 
+
+                        <?php elseif( get_row_layout() == 'accordion' ): ?>				
+
+                            <div class="accordion-section">
+                                <?php if( get_sub_field('accordion_title') ): ?>
+                                    <h2><?php the_sub_field('accordion_title'); ?></h2>
+                                <?php endif; ?>
+                                <div class="accordion-list">
+                                <?php if( have_rows('accordion_list') ): ?>
+                                    <?php while( have_rows('accordion_list') ): the_row(); ?>
+
+                                        <div class="panel">
+                                            <h4><?php the_sub_field('heading'); ?></h4>
+                                            <div class="panel__content">
+                                                <?php the_sub_field('content'); ?>
+                                            </div>
+                                        </div>
+                                        <!-- /.panel -->
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                                </div>
+                                <!-- // acc  -->
+                            </div>
+                            <!-- // section  -->
                             
 
                         <?php endif; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
 
+                <div id="bottom-form" class="services-form">
+                            
+                    <?php include(TEMPLATEPATH . '/inc/inc_quote_form.php'); ?>
+
+                </div>
+                <!-- /.blog-share -->
 
             </div>
             <!-- /.col-md-12 -->

@@ -266,7 +266,7 @@
     }
 }
 
-#blog-single {
+#blog-single, #services-page {
     padding-top: 100px;
     padding-bottom: 100px;
     @include bp(desktop) {
@@ -1020,6 +1020,9 @@ a.last {
 #bottom-form {
     margin-bottom: 20px;
     margin-top: 10px;
+    &.services-form {
+        margin-top: 100px;
+    }
 }
 
 // CTGA
