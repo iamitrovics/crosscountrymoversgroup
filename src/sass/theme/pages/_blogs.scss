@@ -1075,3 +1075,51 @@ a.last {
         }
     }
 }
+
+#services-page {
+    h1 {
+        @include heading-font;
+    }
+    h2 {
+        @include heading-font2;
+    }
+    h3 {
+        @include heading-font3;
+    }
+    h4 {
+        @include heading-font4;
+    }
+    iframe {
+        @include bp(sm-down) {
+            width: 100%;
+        }
+    }
+    ul {
+        @include list-style;
+        li {
+            a {
+                color: $green;
+                &:hover {
+                    color: $green-dark;
+                }
+            }
+            strong, b {
+                font-weight: normal;
+                font-family: $lato-bold;
+            }
+        }
+    }
+    p {
+        @include regular-text;
+        strong, b {
+            font-weight: normal;
+            font-family: $lato-bold;
+        }
+        a {
+            color: $green;
+            &:hover {
+                color: $green;
+            }
+        }
+    }    
+}

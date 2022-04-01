@@ -69,6 +69,14 @@
             margin-bottom: 0;
         }
     }
+    ul {
+        @include list-style;
+        li {
+            text-align: left;
+            color:$black;
+            margin-bottom: 10px;
+        }        
+    }
 }
 
 #facts {
