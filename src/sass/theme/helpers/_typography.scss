@@ -48,14 +48,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Lato Italic';
-    src: url('../fonts/Lato-Italic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
 $rale-reg: 'Raleway Regular';
 $rale-bold: 'Raleway Bold';
 $rale-black: 'Raleway Bold';
@@ -63,7 +55,6 @@ $rale-light: 'Raleway Light';
 $rale-semi: 'Raleway SemiBold';
 $lato-bold: 'Lato Bold';
 $lato-reg: 'Lato Regular';
-$lato-italic: 'Lato Italic';
 
 $font-main: 'Lato Regular';
 $font-heading: 'Raleway Bold';

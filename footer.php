@@ -197,8 +197,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php the_field('footer_code_snippet', 'options'); ?>
 	<?php endif; ?>
 
-	<script src="<?php bloginfo('template_directory'); ?>/js/sliding-menu.js"></script>
-
 
 </body>
 </html>

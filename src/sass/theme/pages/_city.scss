@@ -500,7 +500,8 @@
             p {
                 @include regular-text;
                 color: #777;
-                font-family: $lato-italic;
+                font-family: $lato-reg;
+                font-style: italic;
                 margin-bottom: 0;
                 img {
                     display: inline-block;
