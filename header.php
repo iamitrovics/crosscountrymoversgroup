@@ -170,11 +170,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 									</div>
 									<!-- /#top-phone -->
 
-									<div id="top-search">
-										<a href="#"><span class="icon-search"></span></a>
-									</div>
-									<!-- /#top-search -->
-
 									<div id="top__mobile">
 										<a href="javascript:;" class="menu-btn">
 											<span></span>

@@ -160,23 +160,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div>
 	<!-- overlay -->
 
-	<div class="search-div">
-		<a href="#" class="close-search">×</a>
-
-			<form role="search" method="get" id="searchform"
-				class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<div>
-					<label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
-					<input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Enter search keyword here..." />
-					<button type="submit"><span class="icon-search"></span></button>
-
-				</div>
-			</form>    
-
-	</div>
-	<div class="search-overlay"></div>
-	<!-- /.search-div -->
-
 	<div id="fixed-cta">
 		
 		<a href="tel:<?php the_field('phone_number_general_cta', 'options'); ?>">

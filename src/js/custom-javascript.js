@@ -179,17 +179,6 @@
             $('html').removeClass('fixed');
             modal.removeClass('active');
         });
-        $(document).ready(function(){ 
-            $("#top-search a").click(function(e) { 
-                e.preventDefault();
-                $(".search-div, .search-overlay").fadeIn();
-            });
-            $(".search-div .close-search").click(function(e) { 
-                e.preventDefault();
-                $(".search-div, .search-overlay").fadeOut(); 
-            });
-        });
-
 
         $(function() {
             $('.quote-cta--single a.btn-cta').click(function() {
