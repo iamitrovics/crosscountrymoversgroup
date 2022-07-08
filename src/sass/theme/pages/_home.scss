@@ -24,25 +24,6 @@
     .homepage-photo {
         padding-top: 30px;
         position: relative;
-        &:before, &:after {
-            content: "";
-            position: absolute;
-            -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, .6);
-            box-shadow: 0 15px 10px rgba(0, 0, 0, .6);
-            left: 5px;
-            right: 50%;
-            bottom: 8px;
-            height: 30%;
-            z-index: -1;
-            border-radius: inherit;
-            -webkit-transform-origin: 0 0;
-            -moz-transform-origin: 0 0;
-            -ms-transform-origin: 0 0;
-            transform-origin: 0 0;
-            -webkit-transform: skewY(-6deg);
-            -ms-transform: skewY(-6deg);
-            transform: skewY(-6deg);
-        }
     }
 }
 

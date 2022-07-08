@@ -397,6 +397,9 @@ a#go-to-top {
         }
     }
     animation: pulse 1.5s ease infinite;
+    @include bp(sm-down) {
+        animation: none!important;
+    }
     i {
         @include centre(y);
         color:$white;

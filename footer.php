@@ -60,18 +60,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 								<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 									<div class="blog-item">
-										<div class="blog-photo">
-											<a href="<?php echo get_permalink(); ?>">
-												<?php
-												$imageID = get_field('featured_image_blog');
-												$image = wp_get_attachment_image_src( $imageID, 'large' );
-												$alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
-												?> 
-
-												<img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 												
-											</a>
-										</div>
-										<!-- /.blog-photo -->
 										<div class="blog-content">
 											<span class="blog-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span>
 											<div class="comments">
